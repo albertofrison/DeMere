@@ -25,7 +25,7 @@ bets_calculated[1] <- sum(replicate(trials ,sum(replicate(4 ,sample (die, 1, rep
 bets_calculated[2] <- sum(replicate(trials ,sum(replicate(24,(sample(die, 1, replace = TRUE) == 6) & (sample(die, 1, replace = TRUE)== 6)))>=1))/trials 
 
 # Creating data frame for ggplot plotting
-bets_chart <- data.frame (bet_number = c(1,2,1,2),  experiment = c("50k Simulations","50k Simulations", "Theoretical", "Theoretical"), result = c(bets_calculated, bets_theoretical))
+bets_chart <- data.frame (bet_number = c("One 6","Two double 6","One 6","Two double 6"),  experiment = c("50k Simulations","50k Simulations", "Theoretical", "Theoretical"), result = c(bets_calculated, bets_theoretical))
 
 # Plot into GGplot
 ggplot (bets_chart, aes (x= experiment, y=result, fill = experiment, label = round(result,4))) +
